@@ -1,8 +1,13 @@
 package org.example.DAO;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.example.Conexion;
 import org.example.objs.FacturaProducto;
+import org.example.objs.Producto;
 
+import java.io.FileReader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,14 +17,26 @@ public class FacturaProductoDAO implements DAO<FacturaProducto> {
 
     Conexion c = Conexion.getInstance();
 
+    public FacturaProductoDAO(String archivoCSV) throws Exception {
+        String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
 
+        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
+
+        for(CSVRecord row: parser) {
+            FacturaProducto fp = new FacturaProducto(Integer.parseInt(row.get("idFactura")),Integer.parseInt(row.get("idProducto")),Integer.parseInt(row.get("cantidad")));
+            insertar(fp);
+        }
+    }
     @Override
     public void crear() throws Exception {
         c.conectar();
         PreparedStatement ps = c.conn().prepareStatement("CREATE TABLE Factura_Producto (\n" +
-                "    idFactura INT PRIMARY KEY,\n" +
-                "    idProducto VARCHAR(45),\n" +
-                "    cantidad INT\n" +
+                "    idFactura INT,\n" +
+                "    idProducto INT,\n" +
+                "    cantidad INT,\n" +
+                "PRIMARY KEY (idFactura, idProducto),\n" +
+                "FOREIGN KEY (idFactura) REFERENCES Factura(idFactura),\n" +
+                "FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)\n" +
                 ");");
         ps.executeUpdate();
         c.cerrar();
