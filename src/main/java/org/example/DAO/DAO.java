@@ -2,7 +2,7 @@ package org.example.DAO;
 
 import java.util.LinkedList;
 
-public interface CRUD<T> {
+public interface DAO<T> {
 
     void crear() throws Exception;
     void drop() throws Exception;
