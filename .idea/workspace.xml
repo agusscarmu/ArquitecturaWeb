@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99b042d3-83bb-4ad3-9389-198cecd36507" name="Changes" comment="" />
+    <list default="true" id="99b042d3-83bb-4ad3-9389-198cecd36507" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/ProductoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/objs/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/objs/Producto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +86,7 @@
       <updated>1693006518394</updated>
       <workItem from="1693006519613" duration="997000" />
       <workItem from="1693007524819" duration="1856000" />
-      <workItem from="1693010524402" duration="11059000" />
+      <workItem from="1693010524402" duration="14202000" />
     </task>
     <servers />
   </component>

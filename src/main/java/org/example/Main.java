@@ -4,6 +4,7 @@ package org.example;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.example.DAO.CRUD;
 import org.example.DAO.ProductoDAO;
 import org.example.objs.Producto;
 
@@ -18,11 +19,18 @@ public class Main {
 
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
-        List<Producto> productos = new LinkedList<>();
-        for(CSVRecord row: parser) {
-            productos.add(new Producto(Integer.parseInt(row.get("idProducto")),row.get("nombre"),Integer.parseInt(row.get("valor"))));
-        }
+        CRUD<Producto> DAO1 = new ProductoDAO();
 //
+//        for(CSVRecord row: parser) {
+//            Producto p = new Producto(Integer.parseInt(row.get("idProducto")),row.get("nombre"),Integer.parseInt(row.get("valor")));
+//            DAO1.insertar(p);
+//        }
+
+
+
+        List<Producto> p = DAO1.listar();
+
+        System.out.println(p);
 //        Conexion c = Conexion.getInstance();
 //
 //        try{

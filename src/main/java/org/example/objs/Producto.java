@@ -1,8 +1,7 @@
 package org.example.objs;
 
-import org.example.DAO.ProductoDAO;
 
-public class Producto extends ProductoDAO {
+public class Producto{
     private int id;
     private String nombre;
     private float valor;
@@ -11,7 +10,6 @@ public class Producto extends ProductoDAO {
         this.id=id;
         this.nombre=nombre;
         this.valor=valor;
-        this.insertar(this);
     }
 
     public void setId(int id){
