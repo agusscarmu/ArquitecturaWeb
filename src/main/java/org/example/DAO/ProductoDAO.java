@@ -3,8 +3,11 @@ package org.example.DAO;
 import org.example.Conexion;
 import org.example.objs.Producto;
 
+import javax.sql.RowSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 public class ProductoDAO implements CRUD<Producto> {
 
@@ -48,11 +51,6 @@ public class ProductoDAO implements CRUD<Producto> {
     }
 
     @Override
-    public void seleccionar(Producto producto) throws Exception {
-
-    }
-
-    @Override
     public void actualizar(Producto producto) throws Exception {
 
     }
@@ -63,7 +61,18 @@ public class ProductoDAO implements CRUD<Producto> {
     }
 
     @Override
-    public void listar(Producto producto) throws Exception {
+    public LinkedList<Producto> listar() throws Exception {
+        LinkedList<Producto> s = new LinkedList<>();
+        c.conectar();
+        PreparedStatement ps = c.conn().prepareStatement("SELECT * FROM producto");
+        ResultSet rs = ps.executeQuery();
 
+        while (rs.next()){
+            Producto p = new Producto(rs.getInt(1),rs.getString(2), rs.getFloat(3));
+            s.add(p);
+        }
+        c.cerrar();
+
+        return s;
     }
 }
