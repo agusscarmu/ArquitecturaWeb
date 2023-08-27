@@ -102,4 +102,17 @@ public class ProductoDAO implements DAO<Producto> {
 
         return s;
     }
+
+    public Producto masRecaudo() throws Exception {
+        c.conectar();
+        PreparedStatement ps = c.conn().prepareStatement("SELECT p.* FROM Factura_Producto fp" +
+                                                            " INNER JOIN Producto p ON fp.idProducto=p.idProducto" +
+                                                            " GROUP BY fp.idProducto" +
+                                                            " ORDER BY sum(fp.cantidad * p.valor) DESC LIMIT 1");
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        Producto p = new Producto(rs.getInt(1),rs.getString(2), rs.getFloat(3));
+        c.cerrar();
+        return p;
+    }
 }

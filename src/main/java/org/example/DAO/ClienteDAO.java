@@ -102,4 +102,23 @@ public class ClienteDAO implements DAO<Cliente> {
 
         return s;
     }
+
+    public LinkedList<Cliente> listarOrdenado() throws Exception {
+        LinkedList<Cliente> s = new LinkedList<>();
+        c.conectar();
+        PreparedStatement ps = c.conn().prepareStatement("SELECT c.* FROM Cliente c" +
+                                        " JOIN Factura f on c.idCliente = f.idCliente" +
+                                        " JOIN Factura_Producto fp on f.idFactura = fp.idFactura" +
+                                        " JOIN Producto p on p.idProducto = fp.idProducto" +
+                                        " GROUP BY c.idCliente ORDER BY SUM(fp.cantidad * p.valor) DESC");
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()){
+            Cliente cliente = new Cliente(rs.getInt(1),rs.getString(2), rs.getString(3));
+            s.add(cliente);
+        }
+        c.cerrar();
+
+        return s;
+    }
 }
