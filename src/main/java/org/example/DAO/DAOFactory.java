@@ -2,7 +2,7 @@ package org.example.DAO;
 
 public class DAOFactory {
 
-    public static DAO<?> crearDAO(String archivoCSV){
+    public static DAO<?> crearDAO(String archivoCSV) throws Exception {
         switch (archivoCSV){
             case "productos.csv":
                 return new ProductoDAO(archivoCSV);
@@ -13,5 +13,6 @@ public class DAOFactory {
             case "facturas-productos.csv":
                 return new FacturaProductoDAO(archivoCSV);
         }
+        return null;
     }
 }

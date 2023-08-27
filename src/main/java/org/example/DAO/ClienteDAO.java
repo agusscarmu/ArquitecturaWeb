@@ -1,8 +1,13 @@
 package org.example.DAO;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.example.Conexion;
 import org.example.objs.Cliente;
+import org.example.objs.Producto;
 
+import java.io.FileReader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,8 +17,15 @@ public class ClienteDAO implements DAO<Cliente> {
 
     Conexion c = Conexion.getInstance();
 
-    public ClienteDAO(String archivoCSV){
+    public ClienteDAO(String archivoCSV) throws Exception {
+        String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
 
+        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
+
+        for(CSVRecord row: parser) {
+            Cliente c = new Cliente(Integer.parseInt(row.get("idCliente")),row.get("nombre"),row.get("email"));
+            insertar(c);
+        }
     }
     @Override
     public void crear() throws Exception {

@@ -1,8 +1,13 @@
 package org.example.DAO;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.example.Conexion;
 import org.example.objs.Factura;
+import org.example.objs.Producto;
 
+import java.io.FileReader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,15 +17,23 @@ public class FacturaDAO implements DAO<Factura> {
 
     Conexion c = Conexion.getInstance();
 
-    public FacturaDAO(String archivoCSV){
+    public FacturaDAO(String archivoCSV) throws Exception {
+        String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
 
+        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
+
+        for(CSVRecord row: parser) {
+            Factura f = new Factura(Integer.parseInt(row.get("idFactura")),Integer.parseInt(row.get("idCliente")));
+            insertar(f);
+        }
     }
     @Override
     public void crear() throws Exception {
         c.conectar();
         PreparedStatement ps = c.conn().prepareStatement("CREATE TABLE Factura (\n" +
                 "    idFactura INT PRIMARY KEY,\n" +
-                "    idCliente INT,\n" +
+                "    idCliente INT, \n" +
+                "FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)\n" +
                 ");");
         ps.executeUpdate();
         c.cerrar();
