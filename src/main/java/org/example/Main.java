@@ -15,8 +15,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         DAO d1 = DAOFactory.crearDAO("clientes.csv");
         DAO d2 = DAOFactory.crearDAO("facturas.csv");
-        DAO d4 = DAOFactory.crearDAO("productos.csv");
-        DAO d3 = DAOFactory.crearDAO("facturas-productos.csv");
+        DAO d3 = DAOFactory.crearDAO("productos.csv");
+        DAO d4 = DAOFactory.crearDAO("facturas-productos.csv");
 
     }
 }
