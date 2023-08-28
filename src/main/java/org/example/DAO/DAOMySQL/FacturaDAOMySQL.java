@@ -1,11 +1,11 @@
-package org.example.DAO;
+package org.example.DAO.DAOMySQL;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.example.Conexion;
+import org.example.DAO.DAO;
 import org.example.objs.Factura;
-import org.example.objs.Producto;
 
 import java.io.FileReader;
 import java.sql.PreparedStatement;
@@ -13,11 +13,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class FacturaDAO implements DAO<Factura> {
+public class FacturaDAOMySQL implements DAO<Factura> {
 
     private final Conexion c = Conexion.getInstance();
 
-    public FacturaDAO(String archivoCSV) throws Exception {
+    public FacturaDAOMySQL(String archivoCSV) throws Exception {
 
         String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
 
