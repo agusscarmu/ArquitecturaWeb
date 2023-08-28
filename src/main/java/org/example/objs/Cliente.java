@@ -35,4 +35,8 @@ public class Cliente {
         this.mail = mail;
     }
 
+    @Override
+    public String toString() {
+        return idCliente+" - "+nombre+" - mail: "+mail;
+    }
 }

@@ -21,13 +21,13 @@ public class Main {
         DAO d3 = DAOFactory.crearDAO("productos.csv");
         DAO d4 = DAOFactory.crearDAO("facturas-productos.csv");
 
-        ProductoDAO pdao = (ProductoDAO) d4;
+        ProductoDAO pdao = (ProductoDAO) d3;
         ClienteDAO cdao = (ClienteDAO) d1;
         Producto p = pdao.masRecaudo();
         System.out.println("Producto que mas recaudo: "+p.getNombre());
         LinkedList<Cliente> clientes = cdao.listarOrdenado();
         for(Cliente c : clientes){
-            System.out.println(c.getIdCliente()+" - "+c.getNombre());
+            System.out.println(c);
         }
     }
 }
