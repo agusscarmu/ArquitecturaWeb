@@ -15,7 +15,7 @@ import java.util.LinkedList;
 
 public class ClienteDAO implements DAO<Cliente> {
 
-    Conexion c = Conexion.getInstance();
+    private final Conexion c = Conexion.getInstance();
 
     public ClienteDAO(String archivoCSV) throws Exception {
         String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;

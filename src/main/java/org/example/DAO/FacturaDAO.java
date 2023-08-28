@@ -15,9 +15,10 @@ import java.util.LinkedList;
 
 public class FacturaDAO implements DAO<Factura> {
 
-    Conexion c = Conexion.getInstance();
+    private final Conexion c = Conexion.getInstance();
 
     public FacturaDAO(String archivoCSV) throws Exception {
+
         String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
 
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
