@@ -3,7 +3,7 @@ package org.example.DAO.DAOMySQL;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.example.Conexion;
+import org.example.ConexionMySql;
 import org.example.DAO.DAO;
 import org.example.objs.FacturaProducto;
 
@@ -15,11 +15,11 @@ import java.util.LinkedList;
 
 public class FacturaProductoDAOMySQL implements DAO<FacturaProducto> {
 
-    private final Conexion c = Conexion.getInstance();
+    private ConexionMySql c;
 
-    public FacturaProductoDAOMySQL(String archivoCSV) throws Exception {
+    public FacturaProductoDAOMySQL(String archivoCSV, ConexionMySql c) throws Exception {
         String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
-
+        this.c=c;
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
         for(CSVRecord row: parser) {

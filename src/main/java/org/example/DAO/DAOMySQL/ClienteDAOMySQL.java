@@ -3,7 +3,7 @@ package org.example.DAO.DAOMySQL;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.example.Conexion;
+import org.example.ConexionMySql;
 import org.example.DAO.DAO;
 import org.example.objs.Cliente;
 
@@ -15,16 +15,16 @@ import java.util.LinkedList;
 
 public class ClienteDAOMySQL implements DAO<Cliente> {
 
-    private final Conexion c = Conexion.getInstance();
+    private ConexionMySql c;
 
-    public ClienteDAOMySQL(String archivoCSV) throws Exception {
+    public ClienteDAOMySQL(String archivoCSV, ConexionMySql c) throws Exception {
         String csvFilePath = System.getProperty("user.dir") + "/"+archivoCSV;
-
+        this.c=c;
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(csvFilePath));
 
         for(CSVRecord row: parser) {
-            Cliente c = new Cliente(Integer.parseInt(row.get("idCliente")),row.get("nombre"),row.get("email"));
-            insertar(c);
+            Cliente cliente = new Cliente(Integer.parseInt(row.get("idCliente")),row.get("nombre"),row.get("email"));
+            insertar(cliente);
         }
     }
     @Override
@@ -121,4 +121,5 @@ public class ClienteDAOMySQL implements DAO<Cliente> {
 
         return s;
     }
+
 }

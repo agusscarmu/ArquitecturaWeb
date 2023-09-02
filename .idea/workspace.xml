@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b042d3-83bb-4ad3-9389-198cecd36507" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOAbstractFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOFactoryMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ClienteDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/FacturaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/FacturaProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaProductoDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ProductoDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ConexionMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ClienteDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ClienteDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaProductoDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/FacturaProductoDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ProductoDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/DAOMySQL/ProductoDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOAbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOAbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOFactoryMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Factory/DAOFactoryMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +98,9 @@
       <workItem from="1693010524402" duration="14202000" />
       <workItem from="1693010524402" duration="22466000" />
       <workItem from="1693094785324" duration="3052000" />
-      <workItem from="1693243075402" duration="7832000" />
+      <workItem from="1693243075402" duration="8446000" />
+      <workItem from="1693530065667" duration="168000" />
+      <workItem from="1693659675930" duration="2293000" />
     </task>
     <servers />
   </component>

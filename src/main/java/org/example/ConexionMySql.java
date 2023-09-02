@@ -3,9 +3,8 @@ package org.example;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Conexion {
+public class ConexionMySql {
 
-    public static Conexion instancia;
     private Connection conn;
 
     private String driver = "com.mysql.cj.jdbc.Driver";
@@ -14,14 +13,6 @@ public class Conexion {
     private String user = "root";
     private String pass = "";
 
-    private Conexion(){}
-
-    public static Conexion getInstance(){
-         if(instancia==null){
-             instancia=new Conexion();
-         }
-         return instancia;
-    }
     public void conectar() throws Exception{
         Connection connection = DriverManager.getConnection(dbUrl, user, pass);
         Class.forName(driver).getDeclaredConstructor().newInstance();

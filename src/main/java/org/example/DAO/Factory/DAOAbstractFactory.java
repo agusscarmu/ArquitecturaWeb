@@ -3,18 +3,19 @@ package org.example.DAO.Factory;
 import org.example.DAO.DAO;
 
 public abstract class DAOAbstractFactory{
-    private static final DAOAbstractFactory DAOFactoryMySQL = new DAOFactoryMySQL();
 
     public static DAO<?> crearDAO(String archivoCSV, String database) throws Exception {
+        DAOAbstractFactory dao=null;
         switch (database) {
             case "MySQL":
-                return DAOFactoryMySQL.crearDAO(archivoCSV);
+                dao = DAOFactoryMySQL.getInstancia();
+
 //          Con este switch se podria usar la funcionalidad de incorporar al sistema
 //          distintas bases de datos en un futuro. Por ejemplo, Derby:
 //            case "Derby":
-//                return DAOFactoryDerby.crearDAO(archivoCSV);
+//                dao = DAOFactoryDerby.getInstancia();
         }
-        return null;
+        return (dao != null) ? dao.crearDAO(archivoCSV) : null;
     }
 
     public abstract DAO<?> crearDAO(String archivoCSV) throws Exception;
