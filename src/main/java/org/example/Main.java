@@ -22,6 +22,8 @@ public class Main {
         ClienteDAOMySQL cdao = (ClienteDAOMySQL) d1;
         Producto p = pdao.masRecaudo();
         System.out.println("Producto que mas recaudo: "+p.getNombre());
+        System.out.println("-----------------------------------------");
+        System.out.println("Clientes a los que mas se le facturo: ");
         LinkedList<Cliente> clientes = cdao.listarOrdenado();
         for(Cliente c : clientes){
             System.out.println(c);
